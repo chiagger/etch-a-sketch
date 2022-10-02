@@ -82,3 +82,14 @@ function changeSize(value) {
         elem.addEventListener('mousedown', changeColor);
     });
   }
+
+  const clear = document.getElementById('clear');
+  clear.addEventListener('click', clearCanvas);
+
+  function clearCanvas() {
+    const anydiv = document.querySelectorAll("#drawhere div");
+
+    anydiv.forEach(function(elem) {
+        elem.style.backgroundColor='rgb(209, 207, 207)';
+    });
+  }
