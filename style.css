@@ -1,0 +1,49 @@
+/*<div class="header">Etch A Sketch</div>
+    
+<div class="center">
+    <div class="sidebar">Sidebar</div>
+    <div id="drawhere"></div> 
+</div>*/
+
+body {
+    display:flex;
+    flex-direction: column;
+    height:100%;
+    width:100%;
+}
+
+.header {
+    color:green;
+    font-size: 52px;
+    text-align: center;
+    padding: 15px;
+}
+
+.center {
+    display:flex;
+    gap:30px;
+}
+
+.center .sidebar {
+    background-color: black;
+    width: 200px;
+    height:auto;
+}
+
+.center #drawhere {
+    width:480px;
+    height:480px;
+    border: 80px solid red;
+    border-radius: 40px;
+    display:flex;
+    flex-wrap: wrap;
+    aspect-ratio: 1/1;
+    margin:auto;
+    margin-top:100px;
+}
+
+.center #drawhere div {
+    width: 30px;
+    height:30px;
+    background-color: rgb(194, 193, 193);
+}
