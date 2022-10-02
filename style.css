@@ -8,15 +8,18 @@
 body {
     display:flex;
     flex-direction: column;
+    background-color: rgb(207, 19, 19);
     height:100%;
     width:100%;
 }
 
 .header {
-    color:green;
-    font-size: 52px;
-    text-align: center;
     padding: 15px;
+    text-align: center;
+}
+
+.header img {
+    height: 150px;
 }
 
 .center {
@@ -24,26 +27,82 @@ body {
     gap:30px;
 }
 
-.center .sidebar {
-    background-color: black;
-    width: 200px;
-    height:auto;
-}
 
 .center #drawhere {
-    width:480px;
-    height:480px;
-    border: 80px solid red;
+    width:800px;
+    height:800px;
     border-radius: 40px;
     display:flex;
     flex-wrap: wrap;
     aspect-ratio: 1/1;
     margin:auto;
-    margin-top:100px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top:30px;
 }
 
 .center #drawhere div {
-    width: 30px;
-    height:30px;
-    background-color: rgb(194, 193, 193);
+   /* width: 50px;
+    height:50px;*/
+    background-color: rgb(209, 207, 207);
 }
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+  }
+  
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 200px; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 8px;
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 30px; /* Set a specific slider handle width */
+    height: 30px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 15px;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+  .footer {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slidecontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+
+  .slidecontainer #sizeValue {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+  }
