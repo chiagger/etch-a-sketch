@@ -1,95 +1,129 @@
 const gridContainer = document.getElementById('drawhere');
 const DEFAULT_SIZE = 16;
 
-
-for (let i=0; i<16; i++) {
-    for (let k=0; k<16; k++) {
-        const square = document.createElement('div');
-        square.style.width= '50px';
-        square.style.height= '50px';
-        gridContainer.appendChild(square);
-    }
+//create default grid
+for (let i = 0; i < 16; i++) {
+  for (let k = 0; k < 16; k++) {
+    const square = document.createElement('div');
+    square.style.width = '50px';
+    square.style.height = '50px';
+    gridContainer.appendChild(square);
+  }
 }
-
 
 const anydiv = document.querySelectorAll("#drawhere div");
 const grid = document.getElementById('drawhere');
 
-let downCheck=false;
+//set drawing properties and add listeners 
+let downCheck = false;
 document.body.onmousedown = () => (downCheck = true);
 document.body.onmouseup = () => (downCheck = false);
 
-anydiv.forEach(function(elem) {
-    elem.addEventListener('mouseover', changeColor);
-    elem.addEventListener('mousedown', changeColor);
+anydiv.forEach(function (elem) {
+  elem.addEventListener('mouseover', changeColor);
+  elem.addEventListener('mousedown', changeColor);
 });
 
-function changeColor(e) {
-    //e.target.style.backgroundColor='gray';
+//mode variables
+const modeRetro = 'retro';
+const modeEraser = 'eraser';
+let currentMode = 'retro';
 
-   if (e.type==='mouseover' && downCheck) {
-        e.target.style.backgroundColor='gray';
-   }
-    
+//changecolor function
+function changeColor(e) {
+  if (e.type === 'mouseover' && downCheck) {
+    if (currentMode === modeRetro) {
+      e.target.style.backgroundColor = 'gray';
+    } else if (currentMode === modeEraser) {
+      e.target.style.backgroundColor = 'rgb(209, 207, 207)';
+    }
+  }
 }
 
+//slider and its functions
 var slider = document.getElementById("myRange");
 var output = document.getElementById("sizeValue");
 slider.onmousemove = (e) => updateSizeValue(e.target.value);
 slider.onchange = (e) => changeSize(e.target.value);
 
 function changeSize(value) {
-    setCurrentSize(value)
-    updateSizeValue(value)
-    reloadGrid()
+  setCurrentSize(value)
+  updateSizeValue(value)
+  reloadGrid()
+}
+
+function updateSizeValue(value) {
+  output.innerHTML = `${value} x ${value}`;
+}
+
+function reloadGrid() {
+  clearGrid()
+  setupGrid(currentSize)
+}
+
+let currentSize = DEFAULT_SIZE;
+function setCurrentSize(newSize) {
+  currentSize = newSize;
+}
+
+function clearGrid() {
+  grid.innerHTML = '';
+}
+
+function setupGrid(size) {
+  let sizenr = 800 / size;
+  let sizenrstring = sizenr.toString();
+  let sizeStringPx = sizenrstring.concat("", 'px');
+  for (let i = 0; i < size * size; i++) {
+    const square = document.createElement('div');
+    square.style.width = sizeStringPx;
+    square.style.height = sizeStringPx;
+    gridContainer.appendChild(square);
   }
 
-  function updateSizeValue(value) {
-    output.innerHTML = `${value} x ${value}`;
-  }
+  const anydiv = document.querySelectorAll("#drawhere div");
+  anydiv.forEach(function (elem) {
+    elem.addEventListener('mouseover', changeColor);
+    elem.addEventListener('mousedown', changeColor);
+  });
+}
 
-  function reloadGrid() {
-    clearGrid()
-    setupGrid(currentSize)
-  }
+//clear button
+const clear = document.getElementById('clear');
+clear.addEventListener('click', clearCanvas);
 
-  let currentSize = DEFAULT_SIZE;
-    function setCurrentSize(newSize) {
-    currentSize = newSize;
-  }
+function clearCanvas() {
+  const anydiv = document.querySelectorAll("#drawhere div");
+  anydiv.forEach(function (elem) {
+    elem.style.backgroundColor = 'rgb(209, 207, 207)';
+  });
+}
 
-  function clearGrid() {
-    grid.innerHTML = '';
-  }
+//retro button
+const retroBtn = document.getElementById('retro');
+retroBtn.addEventListener('click', setRetro);
 
+anydiv.forEach(function (elem) {
+  elem.addEventListener('mouseover', changeColor);
+  elem.addEventListener('mousedown', changeColor);
+});
 
-  
-  function setupGrid(size) {
-    let sizenr = 800/size;
-    let sizenrstring = sizenr.toString();
-    let sizeStringPx = sizenrstring.concat("", 'px');
-    for (let i=0; i< size*size; i++) {
-        const square = document.createElement('div');
-        square.style.width= sizeStringPx;
-        square.style.height= sizeStringPx;
-        gridContainer.appendChild(square);
-    }
+function setRetro() {
+  currentMode = modeRetro;
+}
 
-    const anydiv = document.querySelectorAll("#drawhere div");
+//eraser button
+const eraserBtn = document.getElementById('eraser');
+eraserBtn.addEventListener('click', setEraser);
 
-    anydiv.forEach(function(elem) {
-        elem.addEventListener('mouseover', changeColor);
-        elem.addEventListener('mousedown', changeColor);
-    });
-  }
+anydiv.forEach(function (elem) {
+  elem.addEventListener('mouseover', changeColor);
+  elem.addEventListener('mousedown', changeColor);
+});
 
-  const clear = document.getElementById('clear');
-  clear.addEventListener('click', clearCanvas);
+function setEraser() {
+  currentMode = modeEraser;
+}
 
-  function clearCanvas() {
-    const anydiv = document.querySelectorAll("#drawhere div");
+//pencil button
 
-    anydiv.forEach(function(elem) {
-        elem.style.backgroundColor='rgb(209, 207, 207)';
-    });
-  }
