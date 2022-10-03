@@ -28,6 +28,8 @@ anydiv.forEach(function (elem) {
 const modeRetro = 'retro';
 const modeEraser = 'eraser';
 const modeRainbow = 'rainbow';
+const modeColor = 'color';
+let color;
 let currentMode = 'retro';
 
 //in order to find a random rgb
@@ -46,6 +48,8 @@ function changeColor(e) {
       let randomB = randomBetween(0, 255);
       const rgb = `rgb(${randomR},${randomG},${randomB})`;
       e.target.style.backgroundColor = rgb;
+    } else if (currentMode === modeColor) {
+      e.target.style.backgroundColor = color;
     }
   }
 }
@@ -146,4 +150,19 @@ anydiv.forEach(function (elem) {
 
 function setRainbow() {
   currentMode = modeRainbow;
+}
+
+//colorpicker 
+const colorPckr = document.getElementById('colorpicker');
+colorPckr.addEventListener('change', setColor);
+colorPckr.addEventListener('input', setColor);
+
+anydiv.forEach(function (elem) {
+  elem.addEventListener('mouseover', changeColor);
+  elem.addEventListener('mousedown', changeColor);
+});
+
+function setColor(e) {
+  color = e.target.value;
+  currentMode = modeColor;
 }
