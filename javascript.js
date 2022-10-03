@@ -50,7 +50,7 @@ function changeColor(e) {
       e.target.style.backgroundColor = rgb;
     } else if (currentMode === modeColor) {
       e.target.style.backgroundColor = color;
-    }
+    } 
   }
 }
 
