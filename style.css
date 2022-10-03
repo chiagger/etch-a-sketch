@@ -1,116 +1,115 @@
 body {
-    display:flex;
-    flex-direction: column;
-    background-color: rgb(207, 19, 19);
-    height:100%;
-    width:100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(207, 19, 19);
+  height: 100%;
+  width: 100%;
 }
 
 .header {
-    padding: 15px;
-    text-align: center;
+  padding: 15px;
+  text-align: center;
 }
 
 .header img {
-    height: 150px;
+  height: 150px;
 }
 
 .center {
-    display:flex;
-    gap:30px;
+  display: flex;
+  gap: 30px;
 }
 
-
 .center #drawhere {
-    width:800px;
-    height:800px;
-    border-radius: 40px;
-    display:flex;
-    flex-wrap: wrap;
-    aspect-ratio: 1/1;
-    margin:auto;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-top:30px;
+  width: 800px;
+  height: 800px;
+  border-radius: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  aspect-ratio: 1/1;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: 30px;
 }
 
 .center #drawhere div {
-   /* width: 50px;
-    height:50px;*/
-    background-color: rgb(209, 207, 207);
+  background-color: rgb(209, 207, 207);
 }
 
 .slidecontainer {
-    width: 100%; /* Width of the outside container */
-  }
-  
-  /* The slider itself */
-  .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 200px; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-    border-radius: 8px;
-  }
-  
-  /* Mouse-over effects */
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 30px; /* Set a specific slider handle width */
-    height: 30px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 15px;
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
-  .footer {
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding-left: 200px;
-    padding-right: 200px;
-    gap:30px;
-  }
+.slidecontainer #sizeValue {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  display: inline-block;
+}
 
-  .slidecontainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.slider {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  appearance: none;
+  width: 200px;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.9;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 8px;
+}
 
-  }
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1;
+}
 
-  .slidecontainer #sizeValue {
-    text-align: center;
-    font-weight: bold;
-    font-size: 25px;
-    display:inline-block;
-  }
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  background: #04AA6D;
+  cursor: pointer;
+  border-radius: 15px;
+}
 
-  .footer #clear {
-    font-size: 25px;
-    padding-top:5px;
-    padding-bottom:5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 15px;
-    background-color: rgb(207, 19, 19);
-    color: rgb(223, 223, 223);
-    border-color:rgb(223, 223, 223) ;
-  }
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.footer {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-left: 200px;
+  padding-right: 200px;
+  gap: 30px;
+}
+
+.end {
+  display:flex;
+  justify-content: center;
+  gap:30px;
+}
+
+.end button {
+  font-size: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  background-color: rgb(207, 19, 19);
+  color: rgb(223, 223, 223);
+  border-color: rgb(223, 223, 223);
+}
