@@ -27,7 +27,11 @@ anydiv.forEach(function (elem) {
 //mode variables
 const modeRetro = 'retro';
 const modeEraser = 'eraser';
+const modeRainbow = 'rainbow';
 let currentMode = 'retro';
+
+//in order to find a random rgb
+const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
 
 //changecolor function
 function changeColor(e) {
@@ -36,6 +40,12 @@ function changeColor(e) {
       e.target.style.backgroundColor = 'gray';
     } else if (currentMode === modeEraser) {
       e.target.style.backgroundColor = 'rgb(209, 207, 207)';
+    } else if (currentMode === modeRainbow) {
+      let randomR = randomBetween(0, 255);
+      let randomG = randomBetween(0, 255);
+      let randomB = randomBetween(0, 255);
+      const rgb = `rgb(${randomR},${randomG},${randomB})`;
+      e.target.style.backgroundColor = rgb;
     }
   }
 }
@@ -125,5 +135,15 @@ function setEraser() {
   currentMode = modeEraser;
 }
 
-//pencil button
+//rainbow button
+const rainbowBtn = document.getElementById('rainbow');
+rainbowBtn.addEventListener('click', setRainbow);
 
+anydiv.forEach(function (elem) {
+  elem.addEventListener('mouseover', changeColor);
+  elem.addEventListener('mousedown', changeColor);
+});
+
+function setRainbow() {
+  currentMode = modeRainbow;
+}
